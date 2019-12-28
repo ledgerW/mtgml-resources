@@ -80,7 +80,7 @@ Resources:
                   - Fn::Join:
                     - ''
                     -
-                      - Fn::GetAtt: [AttachmentsBucket, Arn]
+                      - 'Fn::ImportValue': ${self:custom.stage}-AttachmentsBucketArn
                       - '/private/'
                       - '$'
                       - '{cognito-identity.amazonaws.com:sub}/*'
