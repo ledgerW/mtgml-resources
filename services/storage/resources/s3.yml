@@ -1,0 +1,35 @@
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      # Set the CORS policy
+      CorsConfiguration:
+        CorsRules:
+          -
+            AllowedOrigins:
+              - '*'
+            AllowedHeaders:
+              - '*'
+            AllowedMethods:
+              - GET
+              - PUT
+              - POST
+              - DELETE
+              - HEAD
+            MaxAge: 3000
+
+# Print out the name of the bucket that is created
+Outputs:
+  AttachmentsBucketArn:
+    Value:
+       Fn::GetAtt:
+        - S3Bucket
+        - Arn
+    Export:
+      Name: ${self:custom.stage}-AttachmentsBucketArn
+
+  AttachmentsBucketName:
+    Value:
+      Ref: S3Bucket
+    Export:
+      Name: ${self:custom.stage}-AttachmentsBucket

@@ -1,0 +1,67 @@
+service: mtgml-database
+
+custom:
+  # Our stage is based on what is passed in when running serverless
+  # commands. Or fallsback to what we have set in the provider section.
+  stage: ${opt:stage, self:provider.stage}
+  # Set the table name here so we can use it while testing locally
+  # Set the table name here so we can use it while testing locally
+  usersTable: ${self:custom.stage}-users
+  subscriptionsTable: ${self:custom.stage}-subscriptions
+  globalDecksTable: ${self:custom.stage}-global-decks
+  globalCardsTable: ${self:custom.stage}-global-cards
+  userDecksTable: ${self:custom.stage}-user-decks
+  userCardsTable: ${self:custom.stage}-user-cards
+
+provider:
+  name: aws
+  stage: dev
+  region: us-east-1
+
+resources:
+  # DynamoDB Tables
+  - ${file(resources/dynamodb-tables.yml)}
+
+  Outputs:
+    UsersTableArn:
+      Value:
+         Fn::GetAtt:
+          - UsersTable
+          - Arn
+      Export:
+        Name: ${self:custom.stage}-UsersTableArn
+    SubscriptionsTableArn:
+      Value:
+         Fn::GetAtt:
+          - SubscriptionsTable
+          - Arn
+      Export:
+        Name: ${self:custom.stage}-SubscriptionsTableArn
+    GlobalDecksTableArn:
+      Value:
+         Fn::GetAtt:
+          - GlobalDecksTable
+          - Arn
+      Export:
+        Name: ${self:custom.stage}-GlobalDecksTableArn
+    GlobalCardsTableArn:
+      Value:
+         Fn::GetAtt:
+          - GlobalCardsTable
+          - Arn
+      Export:
+        Name: ${self:custom.stage}-GlobalCardsTableArn
+    UserDecksTableArn:
+      Value:
+         Fn::GetAtt:
+          - UserDecksTable
+          - Arn
+      Export:
+        Name: ${self:custom.stage}-UserDecksTableArn
+    UserCardsTableArn:
+      Value:
+         Fn::GetAtt:
+          - UserCardsTable
+          - Arn
+      Export:
+        Name: ${self:custom.stage}-UserCardsTableArn
