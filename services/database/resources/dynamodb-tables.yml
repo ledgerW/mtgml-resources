@@ -87,45 +87,45 @@ Resources:
       BillingMode: PAY_PER_REQUEST
 
 Outputs:
-UsersTableArn:
-  Value:
-     Fn::GetAtt:
-      - UsersTable
-      - Arn
-  Export:
-    Name: ${self:custom.stage}-UsersTableArn
-SubscriptionsTableArn:
-  Value:
-     Fn::GetAtt:
-      - SubscriptionsTable
-      - Arn
-  Export:
-    Name: ${self:custom.stage}-SubscriptionsTableArn
-GlobalDecksTableArn:
-  Value:
-     Fn::GetAtt:
-      - GlobalDecksTable
-      - Arn
-  Export:
-    Name: ${self:custom.stage}-GlobalDecksTableArn
-GlobalCardsTableArn:
-  Value:
-     Fn::GetAtt:
-      - GlobalCardsTable
-      - Arn
-  Export:
-    Name: ${self:custom.stage}-GlobalCardsTableArn
-UserDecksTableArn:
-  Value:
-     Fn::GetAtt:
-      - UserDecksTable
-      - Arn
-  Export:
-    Name: ${self:custom.stage}-UserDecksTableArn
-UserCardsTableArn:
-  Value:
-     Fn::GetAtt:
-      - UserCardsTable
-      - Arn
-  Export:
-    Name: ${self:custom.stage}-UserCardsTableArn
+  UsersTableArn:
+    Value:
+       Fn::GetAtt:
+        - UsersTable
+        - Arn
+    Export:
+      Name: ${self:custom.stage}-UsersTableArn
+  SubscriptionsTableArn:
+    Value:
+       Fn::GetAtt:
+        - SubscriptionsTable
+        - Arn
+    Export:
+      Name: ${self:custom.stage}-SubscriptionsTableArn
+  GlobalDecksTableArn:
+    Value:
+       Fn::GetAtt:
+        - GlobalDecksTable
+        - Arn
+    Export:
+      Name: ${self:custom.stage}-GlobalDecksTableArn
+  GlobalCardsTableArn:
+    Value:
+       Fn::GetAtt:
+        - GlobalCardsTable
+        - Arn
+    Export:
+      Name: ${self:custom.stage}-GlobalCardsTableArn
+  UserDecksTableArn:
+    Value:
+       Fn::GetAtt:
+        - UserDecksTable
+        - Arn
+    Export:
+      Name: ${self:custom.stage}-UserDecksTableArn
+  UserCardsTableArn:
+    Value:
+       Fn::GetAtt:
+        - UserCardsTable
+        - Arn
+    Export:
+      Name: ${self:custom.stage}-UserCardsTableArn
