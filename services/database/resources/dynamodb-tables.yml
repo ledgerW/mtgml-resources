@@ -9,7 +9,7 @@ Resources:
           AttributeType: S
       KeySchema:
         - AttributeName: userId
-          KeyType: RANGE
+          KeyType: HASH
       # Set the capacity to auto-scale
       BillingMode: PAY_PER_REQUEST
   # All subscriptions (subscription accounts)
@@ -22,7 +22,7 @@ Resources:
           AttributeType: S
       KeySchema:
         - AttributeName: userId
-          KeyType: RANGE
+          KeyType: HASH
       # Set the capacity to auto-scale
       BillingMode: PAY_PER_REQUEST
   # Public decks (MPL, etc...)
@@ -35,7 +35,7 @@ Resources:
           AttributeType: S
       KeySchema:
         - AttributeName: deckId
-          KeyType: RANGE
+          KeyType: HASH
       # Set the capacity to auto-scale
       BillingMode: PAY_PER_REQUEST
   # All cards (from Scryfall)
@@ -48,7 +48,7 @@ Resources:
           AttributeType: S
       KeySchema:
         - AttributeName: cardId
-          KeyType: RANGE
+          KeyType: HASH
       # Set the capacity to auto-scale
       BillingMode: PAY_PER_REQUEST
   # User decks
