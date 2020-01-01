@@ -8,14 +8,6 @@ custom:
   instanceType:
     dev: t2.micro.elasticsearch
     prod: t2.small.elasticsearch
-  ebsOptions:
-    dev:
-      EBSEnabled: false
-    prod:
-      EBSEnabled: true
-      VolumeType: gp2
-      VolumeSize: 10
-
 
 provider:
   name: aws
