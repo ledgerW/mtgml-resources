@@ -2,14 +2,14 @@ Resources:
   CardSearchDomain:
     Type: AWS::Elasticsearch::Domain
     Properties:
-      DomainName: card-search
+      DomainName: ${self:custom.domainName}
       ElasticsearchClusterConfig:
-        InstanceType: t2.small.elasticsearch
+        InstanceType: ${self:custom.instanceType.${self:custom.stage}, self:custom.instanceType.dev}
         InstanceCount: 1
       EBSOptions:
         EBSEnabled: true
         VolumeType: gp2
-        VolumeSize: 10
+        VolumeSize: 5
 
 # Print out the name of the bucket that is created
 Outputs:
