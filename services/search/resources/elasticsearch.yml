@@ -6,10 +6,7 @@ Resources:
       ElasticsearchClusterConfig:
         InstanceType: ${self:custom.instanceType.${self:custom.stage}, self:custom.instanceType.dev}
         InstanceCount: 1
-      EBSOptions:
-        EBSEnabled: true
-        VolumeType: gp2
-        VolumeSize: 5
+      EBSOptions: ${self:custom.ebsOptions.${self:custom.stage}, self:custom.ebsOptions.dev}
 
 # Print out the name of the bucket that is created
 Outputs:
