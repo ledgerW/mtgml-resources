@@ -1,0 +1,30 @@
+Resources:
+  CardSearchDomain:
+    Type: AWS::Elasticsearch::Domain
+    Properties:
+      DomainName: card-search
+      ElasticsearchClusterConfig:
+        InstanceType: t2.small.elasticsearch
+        InstanceCount: 1
+      EBSOptions:
+        EBSEnabled: true
+        VolumeType: gp2
+        VolumeSize: 10
+
+# Print out the name of the bucket that is created
+Outputs:
+  CardSearchDomainArn:
+    Value:
+       Fn::GetAtt:
+        - CardSearchDomain
+        - Arn
+    Export:
+      Name: ${self:custom.stage}-CardSearchDomainArn
+
+  CardSearchDomainEndpoint:
+    Value:
+       Fn::GetAtt:
+        - CardSearchDomain
+        - DomainEndpoint
+    Export:
+      Name: ${self:custom.stage}-CardSearchDomainEndpoint

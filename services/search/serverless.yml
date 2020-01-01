@@ -1,4 +1,4 @@
-service: mtgml-database
+service: mtgml-search
 
 custom:
   # Our stage is based on what is passed in when running serverless
@@ -6,11 +6,7 @@ custom:
   stage: ${opt:stage, self:provider.stage}
   # Set the table name here so we can use it while testing locally
   usersTable: ${self:custom.stage}-users
-  subscriptionsTable: ${self:custom.stage}-subscriptions
-  globalDecksTable: ${self:custom.stage}-global-decks
-  globalCardsTable: ${self:custom.stage}-global-cards
-  userDecksTable: ${self:custom.stage}-user-decks
-  userCardsTable: ${self:custom.stage}-user-cards
+
 
 provider:
   name: aws
@@ -19,4 +15,4 @@ provider:
 
 resources:
   # DynamoDB Tables
-  - ${file(resources/dynamodb-tables.yml)}
+  - ${file(resources/elasticsearch.yml)}
