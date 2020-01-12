@@ -19,7 +19,7 @@ Outputs:
         - CardSearchDomain
         - Arn
     Export:
-      Name: ${self:custom.stage}-CardSearchDomainArn
+      Name: CardSearchDomainArn
 
   CardSearchDomainEndpoint:
     Value:
@@ -27,4 +27,4 @@ Outputs:
         - CardSearchDomain
         - DomainEndpoint
     Export:
-      Name: ${self:custom.stage}-CardSearchDomainEndpoint
+      Name: CardSearchDomainEndpoint

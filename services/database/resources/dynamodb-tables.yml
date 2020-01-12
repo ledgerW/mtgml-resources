@@ -109,21 +109,21 @@ Outputs:
         - GlobalDecksTable
         - Arn
     Export:
-      Name: ${self:custom.stage}-GlobalDecksTableArn
+      Name: GlobalDecksTableArn
   GlobalCardsTableArn:
     Value:
        Fn::GetAtt:
         - GlobalCardsTable
         - Arn
     Export:
-      Name: ${self:custom.stage}-GlobalCardsTableArn
+      Name: GlobalCardsTableArn
   GlobalCardsTableStreamArn:
     Value:
        Fn::GetAtt:
         - GlobalCardsTable
         - StreamArn
     Export:
-      Name: ${self:custom.stage}-GlobalCardsTableStreamArn
+      Name: GlobalCardsTableStreamArn
   UserDecksTableArn:
     Value:
        Fn::GetAtt:
