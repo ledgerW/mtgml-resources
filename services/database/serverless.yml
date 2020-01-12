@@ -7,8 +7,6 @@ custom:
   # Set the table name here so we can use it while testing locally
   usersTable: ${self:custom.stage}-users
   subscriptionsTable: ${self:custom.stage}-subscriptions
-  globalDecksTable: global-decks
-  globalCardsTable: global-cards
   userDecksTable: ${self:custom.stage}-user-decks
   userCardsTable: ${self:custom.stage}-user-cards
 

@@ -25,34 +25,6 @@ Resources:
           KeyType: HASH
       # Set the capacity to auto-scale
       BillingMode: PAY_PER_REQUEST
-  # Public decks (MPL, etc...)
-  GlobalDecksTable:
-    Type: AWS::DynamoDB::Table
-    Properties:
-      TableName: ${self:custom.globalDecksTable}
-      AttributeDefinitions:
-        - AttributeName: deckId
-          AttributeType: S
-      KeySchema:
-        - AttributeName: deckId
-          KeyType: HASH
-      # Set the capacity to auto-scale
-      BillingMode: PAY_PER_REQUEST
-  # All cards (from Scryfall)
-  GlobalCardsTable:
-    Type: AWS::DynamoDB::Table
-    Properties:
-      TableName: ${self:custom.globalCardsTable}
-      AttributeDefinitions:
-        - AttributeName: cardId
-          AttributeType: S
-      KeySchema:
-        - AttributeName: cardId
-          KeyType: HASH
-      # Set the capacity to auto-scale
-      BillingMode: PAY_PER_REQUEST
-      StreamSpecification:
-        StreamViewType: NEW_IMAGE
   # User decks
   UserDecksTable:
     Type: AWS::DynamoDB::Table
@@ -103,27 +75,6 @@ Outputs:
         - Arn
     Export:
       Name: ${self:custom.stage}-SubscriptionsTableArn
-  GlobalDecksTableArn:
-    Value:
-       Fn::GetAtt:
-        - GlobalDecksTable
-        - Arn
-    Export:
-      Name: GlobalDecksTableArn
-  GlobalCardsTableArn:
-    Value:
-       Fn::GetAtt:
-        - GlobalCardsTable
-        - Arn
-    Export:
-      Name: GlobalCardsTableArn
-  GlobalCardsTableStreamArn:
-    Value:
-       Fn::GetAtt:
-        - GlobalCardsTable
-        - StreamArn
-    Export:
-      Name: GlobalCardsTableStreamArn
   UserDecksTableArn:
     Value:
        Fn::GetAtt:
