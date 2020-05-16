@@ -1,5 +1,9 @@
 service: mtgml-database
 
+plugins:
+  - serverless-dynamodb-local
+  - serverless-offline
+
 custom:
   # Our stage is based on what is passed in when running serverless
   # commands. Or fallsback to what we have set in the provider section.
@@ -10,8 +14,18 @@ custom:
   userDecksTable: ${self:custom.stage}-user-decks
   userCardsTable: ${self:custom.stage}-user-cards
 
+  dynamodb:
+    stages:
+      - dev
+    start:
+      port: 8000
+      inMemory: true
+      convertEmptyValues: true
+      migrate: true
+
 provider:
   name: aws
+  runtime: python3.7
   stage: dev
   region: us-east-1
 
