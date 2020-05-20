@@ -5,8 +5,14 @@ custom:
   # commands. Or fallsback to what we have set in the provider section.
   stage: ${opt:stage, self:provider.stage}
 
+  userBucket: ${self:custom.stage}-user-bucket
+
+plugins:
+  - serverless-offline
+
 provider:
   name: aws
+  runtime: python3.7
   stage: dev
   region: us-east-1
 
