@@ -5,7 +5,7 @@ custom:
   # commands. Or fallsback to what we have set in the provider section.
   stage: ${opt:stage, self:provider.stage}
 
-  userBucket: ${self:custom.stage}-user-bucket
+  userBucket: ${self:service}-${self:custom.stage}-user-bucket
 
 provider:
   name: aws
