@@ -7,9 +7,6 @@ custom:
 
   userBucket: ${self:custom.stage}-user-bucket
 
-plugins:
-  - serverless-offline
-
 provider:
   name: aws
   runtime: python3.7
