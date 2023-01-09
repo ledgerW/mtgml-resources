@@ -6,6 +6,6 @@
     "serverless": "^1.58.0",
     "serverless-dotenv-plugin": "^2.1.1",
     "serverless-dynamodb-local": "^0.2.39",
-    "serverless-offline": "^5.12.0"
+    "serverless-offline": "^12.0.4"
   }
 }
